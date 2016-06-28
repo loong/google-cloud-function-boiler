@@ -1,6 +1,7 @@
 
-# dependencies
+# build and dependencies
 node_modules/
+dist/
 
 # tmp files
 *~
