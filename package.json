@@ -1,23 +1,23 @@
 {
-    "name": "function-manager",
+    "name": "google-cloud-function-boiler",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
     "scripts": {
-	"dev": "nodemon --exec babel-node src/index.js",
-	"build": "webpack",
+	"dev": "nodemon --exec babel-node src/dev.js",
+	"build": "babel src --out-dir dist",
 	"prestart": "npm run build",
-	"start": "node prod/index.js"
+	"start": "node dist/index.js",
+	"deploy": "npm run build && cd dist && gcloud alpha functions deploy helloHttp --bucket myBucket --trigger-http"
     },
     "keywords": [],
-    "author": "",
+    "author": "Long Hoang <long@mindworker.de>",
     "license": "ISC",
     "devDependencies": {
 	"babel-cli": "^6.10.1",
 	"babel-core": "^6.10.4",
 	"babel-loader": "^6.2.4",
 	"babel-preset-es2015": "^6.9.0",
-	"nodemon": "^1.9.2",
-	"webpack": "^1.13.1"
+	"nodemon": "^1.9.2"
     }
 }
